@@ -13,6 +13,12 @@ In today's world as a developer, having an online presence is a necessity. Howev
   * ability to host website on the platform
   * ability to export and download the completed static website as a zip archive
   * ability to customize user's URL extension
+  * multiple templates for the user to choose from
+  * light/dark mode toggle
+  * different themes and customizability options
+    * accent colours
+    * font family
+    * animations/no animations
 
 ## 10 step plan moving forward
   1. implement user authentication and account creation
