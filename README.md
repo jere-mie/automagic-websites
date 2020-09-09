@@ -30,6 +30,7 @@ In today's world as a developer, having an online presence is a necessity. Howev
   * Flask
   * Flask-wtf
   * PostgreSQL
+  * Bootstrap (styling)
   * GCP (host)
   * Gunicorn (server)
   * Caddy V2 (reverse proxy)
