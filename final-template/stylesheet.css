@@ -1,0 +1,49 @@
+body{
+    zoom: 110%;
+}
+h1 {
+    font-family: 'Libre Franklin';
+    font-size: 3rem;
+    margin-bottom: .5rem;
+    text-align: center;
+    /* text-transform: uppercase; */
+    font-weight: 200;
+    color: #12232F;
+  }
+  h2 {
+    font-family: 'Libre Franklin';
+    font-weight: 400;
+    font-size: 2rem;
+    color: #12232F;
+    text-align: center;
+  }
+  h3 {
+    font-family: 'Yantramanav';
+    font-weight: 300;
+    font-size: 1.4rem;
+  }
+  h4 {
+    font-family: 'Yantramanav';
+    font-size: 1.2rem;
+    margin-bottom: .125rem;
+  }
+  h5 {
+    font-family: 'Yantramanav';
+    font-weight: 300;
+    font-size: 1rem;
+    margin-bottom: .25rem;
+    /* font-style: italic; */
+  }
+section#image{
+    margin-top: 0;
+    padding-top: 0;
+}
+#profile-img {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    top: 6.5rem;
+    width: 50%;
+    max-width: 222px;
+    border: 1.5px solid rgba(200,200,200,.75);
+  }
