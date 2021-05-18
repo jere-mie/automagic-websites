@@ -30,19 +30,33 @@
             <li class="nav-item active">
               <a class="nav-link" href="https://github.com/jere-mie/automagic-websites" target="__blank">GitHub</a>
             </li>
+            {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">Sign In</a>
+                </li>
+            {% endif %}
+
           </ul>
         </div>
       </nav>
-      <br><br><br><br>
+      <br>
       {% with messages = get_flashed_messages(with_categories=true) %}
-                      {% if messages %}
-                          {% for category, message in messages %}
-                              <div class="alert alert-{{ category }}">
-                                  {{ message }}
-                              </div>
-                          {% endfor %}
-                      {% endif %}
-                  {% endwith %}
+          {% if messages %}
+              {% for category, message in messages %}
+                  <div class="alert alert-{{ category }}">
+                    {{ message }}
+                  </div>
+              {% endfor %}
+          {% endif %}
+      {% endwith %}
+      <br><br><br>
       {% block content %}{% endblock %}
       <br><br>
 

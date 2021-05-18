@@ -3,3 +3,4 @@ venv/
 .vscode/
 secrets.json
 site.db
+website/static/out/
