@@ -10,6 +10,9 @@ class Register(FlaskForm):
     linkedin = StringField('LinkedIn Profile', validators=[Length(min=0, max=60)])    
     github = StringField('GitHub Profile', validators=[Length(min=0, max=60)])    
     email = StringField('Email', validators=[Length(min=0, max=60)])    
+    name = StringField('Name', validators=[Length(min=0, max=60)])    
+    tagline = StringField('Tagline/Short Description', validators=[Length(min=0, max=120)])    
+    image = StringField('Image Link', validators=[Length(min=0, max=180)])    
 
     submit = SubmitField('Register')
     
@@ -19,9 +22,13 @@ class Register(FlaskForm):
             raise ValidationError('That username has already been used')
 
 class Edit(FlaskForm):
+    username = StringField('Username', validators=[DataRequired(), Length(min=5, max=60)])    
     linkedin = StringField('LinkedIn Profile', validators=[Length(min=5, max=60)])    
     github = StringField('GitHub Profile', validators=[Length(min=5, max=60)])    
     email = StringField('Email', validators=[Length(min=5, max=60)])    
+    name = StringField('Name', validators=[Length(min=0, max=60)])    
+    tagline = StringField('Tagline/Short Description', validators=[Length(min=0, max=120)])    
+    image = StringField('Image Link', validators=[Length(min=0, max=180)])    
     submit = SubmitField('Edit')
     
 class Login(FlaskForm):

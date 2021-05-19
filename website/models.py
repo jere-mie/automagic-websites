@@ -11,7 +11,7 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(61), nullable=False)
     name = db.Column(db.String(61))
     tagline = db.Column(db.String(120))
-    image = db.Column(db.String(120))
+    image = db.Column(db.String(180))
     linkedin = db.Column(db.String(61))
     github = db.Column(db.String(61))
     email = db.Column(db.String(61))

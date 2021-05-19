@@ -1,7 +1,7 @@
 from flask import Flask, render_template, url_for, flash, redirect, request
 from website import app, db
 from website.models import User
-from website.forms import Login, Register
+from website.forms import Login, Register, Edit
 import os
 from flask_login import login_user, current_user, logout_user, login_required
 import bcrypt
@@ -19,7 +19,7 @@ def register():
     form = Register()
     if form.validate_on_submit():
         hashed = bcrypt.hashpw(form.password.data.encode('utf-8'), bcrypt.gensalt())
-        user = User(username=form.username.data, password=hashed, linkedin=form.linkedin.data, github=form.github.data, email=form.email.data)
+        user = User(username=form.username.data, password=hashed, linkedin=form.linkedin.data, github=form.github.data, email=form.email.data, name=form.name.data, tagline=form.tagline.data, image=form.image.data)
         db.session.add(user)
         db.session.commit()
         flash(f'Created account for {form.username.data}. You may now log in.', 'success')
@@ -48,3 +48,35 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('home'))
+
+
+@app.route('/site/<username>', methods=['GET'])
+def site(username):
+    user = User.query.filter_by(username=username).first()
+    return render_template('user.html', user=user)
+
+@app.route('/account', methods=['GET', 'POST'])
+@login_required
+def account():
+    form = Edit()
+    if form.validate_on_submit():
+        current_user.username = form.username.data
+        current_user.name = form.name.data
+        current_user.tagline = form.tagline.data
+        current_user.image = form.image.data
+        current_user.linkedin = form.linkedin.data
+        current_user.github = form.github.data
+        current_user.email = form.email.data
+        db.session.commit()
+        flash('You have successfully updated your info!', 'success')
+        return redirect(url_for("home"))
+    elif request.method == 'GET':
+        form.username.data = current_user.username
+        form.name.data = current_user.name
+        form.tagline.data = current_user.tagline
+        form.image.data = current_user.image
+        form.linkedin.data = current_user.linkedin
+        form.github.data = current_user.github
+        form.email.data = current_user.email
+        return render_template("account.html", form=form)
+    return 'big error'
