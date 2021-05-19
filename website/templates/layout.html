@@ -31,23 +31,23 @@
               <a class="nav-link" href="https://github.com/jere-mie/automagic-websites" target="__blank">GitHub</a>
             </li>
             {% if current_user.is_authenticated %}
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="{{ url_for('account') }}">Account</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                   <a class="nav-link" href="{{ url_for('site', username=current_user.username) }}">My Site</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                   <a class="nav-link" href="{{ url_for('download') }}" download="index.html">Download Site</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                   <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
                 </li>
               {% else %}
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="{{ url_for('register') }}">Register</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="{{ url_for('login') }}">Sign In</a>
                 </li>
             {% endif %}
