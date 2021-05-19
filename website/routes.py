@@ -55,6 +55,11 @@ def site(username):
     user = User.query.filter_by(username=username).first()
     return render_template('user.html', user=user)
 
+@app.route('/download', methods=['GET'])
+@login_required
+def download():
+    return  render_template('user.html', user=current_user)
+
 @app.route('/account', methods=['GET', 'POST'])
 @login_required
 def account():

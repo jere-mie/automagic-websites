@@ -1,11 +1,11 @@
 {% extends 'layout.html' %}
 {% block content %}
     <div class="container lighter">
-        <h2 class="">View your website <a href="{{ url_for('site', username=current_user.username) }}">here</a></h2><br>
+        <h2 class="">View your website <a href="{{ url_for('site', username=current_user.username) }}">here</a>, or download it <a href="{{ url_for('download') }}" download="index.html">here</a></h2><br>
         <form method='POST' action="">
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">View/Edit Your Info</legend>
+                <h2 class="border-bottom mb-4">View/Edit Your Info</h2>
 
                 <div class="form-group">
                     {{ form.username.label(class="form-control-label") }}

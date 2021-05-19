@@ -32,7 +32,7 @@ class Edit(FlaskForm):
     submit = SubmitField('Edit')
     
 class Login(FlaskForm):
-    username = StringField('Email', validators=[DataRequired()])
+    username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     rememberMe = BooleanField('Remember Me')
-    submit = SubmitField('Sign In')  
+    submit = SubmitField('Sign In')
